@@ -41,7 +41,7 @@ app.post('/query', async function(req, res) {
             case 'knitting':
                 data = await getKnitting();
                 break;
-            case 'movies':
+            case 'movie':
                 data = await getMovies(req.body.query)();
         }
 
