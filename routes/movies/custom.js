@@ -1,5 +1,3 @@
-const { report } = require('../../app');
-
 const axios = require('axios').default;
 
 async function getMovies(search) {
@@ -9,12 +7,12 @@ async function getMovies(search) {
 
     for(const movie of response.data.d) {
         result.push({
-            name: movie.s || movie.l,
+            name: movie.l,
             url: `https://www.imdb.com/title/${movie.id}?ref_=nv_sr_srsg_0`,
             image: movie.i && movie.i.imageUrl,
+            type: 'movies',
             body: {
                 year: movie.y || '',
-
             }
         })
     }

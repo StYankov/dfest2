@@ -26,7 +26,7 @@ app.post('/query', async function(req, res) {
 
     const cached = await Cache.findOne({ name: `${type}.${req.body.query}` });
 
-    if(cached && cached.date > (Date.now() + (60 * 60 * 24 * 1000))) {
+    if(cached && cached.date < (Date.now() + (60 * 60 * 24 * 1000))) {
         data = cached.data;
     } else {
         await Cache.deleteOne({ name: `${type}.${req.body.query}` });
