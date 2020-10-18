@@ -11,10 +11,8 @@ async function getMovies(search) {
             url: `https://www.imdb.com/title/${movie.id}?ref_=nv_sr_srsg_0`,
             image: movie.i && movie.i.imageUrl,
             type: 'movies',
-            body: {
-                year: movie.y || '',
-            }
-        })
+            body: `Year: ${movie.y || '',}`
+        });
     }
 
     return result;
